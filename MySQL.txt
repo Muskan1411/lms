@@ -1,0 +1,32 @@
+Create Database LibraryManagement;
+
+use LibraryManagement;
+
+Create table login
+(Username Varchar(20),
+Password Varchar(20));
+
+Create Table Books
+(BookId int primary key,
+Title Varchar(20),
+Subject Varchar(20),
+Author Varchar(20),
+Publisher Varchar(20),
+Edition Varchar(10),
+Price Decimal(8,2));
+
+Create Table IssuedBooks
+(BookId int,
+LibCardNo int,
+IssueDate date,
+ReturnDate date,
+foreign key(Bookid) References Books(Bookid),
+foreign key(LibcardNo) References LibraryCard(LibCardNo));
+
+Create Table Librarycard
+(LibcardNo int Primary Key,
+Name Varchar(20),
+Dob date,
+Session Varchar(10),
+Class Char(4),
+Section Char(2));
